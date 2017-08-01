@@ -1,0 +1,23 @@
+
+
+
+
+<div class="portfolioFilter"><a class="current" data-filter="*" href="#">All Categories</a> <a data-filter=".people" href="#">People</a> <a data-filter=".places" href="#">Places</a> <a data-filter=".food" href="#">Food</a> <a data-filter=".objects" href="#">Objects</a></div>
+
+<div class="portfolioContainer">
+<div class="objects"><img alt="image" src="images/watch.jpg" /></div>
+
+<div class="people places"><img alt="image" src="images/logo-ex.png" /></div>
+
+<div class="food"><img alt="image" src="images/logo-ex.png" /></div>
+
+<div class="people places"><img alt="image" src="images/logo-ex.png" /></div>
+
+<div class="places objects"><img image="" src="images/logo-ex.png alt=" /></div>
+
+<div class="people food objects"><img alt="image" src="images/logo-ex.png" /></div>
+
+<div class="food objects"><img alt="image" src="images/logo-ex.png" /></div>
+
+<div class="food"><img alt="image" src="images/logo-ex.png" /></div>
+</div>
