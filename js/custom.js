@@ -123,6 +123,21 @@ jQuery(document).ready(function ($) {
             }
         }, 250);
     }
+    
+    
+    EX.fadeinWrapperOverlay = function () {
+        $('.wrapper-overlay').removeClass('fadeInUp');
+        $(document).scroll(function () {
+            var mn = $(".wrapper-overlay");
+            mns = "fadeInUp";
+            hdr = $('.wrapper-overlay').offset().top;
+            $(window).scroll(function () {                
+                if ($(this).scrollTop() >= hdr) {
+                    mn.addClass(mns);
+                }
+            });
+        });
+    };
     /*init*/
 
     EX.init = function () {
@@ -152,6 +167,7 @@ jQuery(document).ready(function ($) {
 
             EX.NextSlide();
             EX.scrollToTop();
+            EX.fadeinWrapperOverlay();
 
         });
 

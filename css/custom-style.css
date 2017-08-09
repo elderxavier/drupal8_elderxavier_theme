@@ -848,7 +848,43 @@ img {
 ================================================== */
 
 #servicos {margin: 0 auto}
-#servicos .wrapper-overlay{ transition: all 0.3s ease-in-out; height: 250px; padding: 15px; margin: 20px 0;    }
+#servicos .wrapper-overlay{ transition: all 0.3s ease-in-out; height: 250px; padding: 15px; margin: 20px 0; opacity: 0 }
+#servicos .wrapper-overlay:hover  .servicos-icon {font-size: 6em; transition: all 0.7s !important}
+#servicos h1 {font-size: 1.7em; font-weight: bold}
+#servicos .servicos-icon {font-size: 5em; font-weight: bold; color:#1E90FF}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0 !important;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1 !important;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+} 
 
 .wrapper-overlay .overlay {
     position: absolute;
