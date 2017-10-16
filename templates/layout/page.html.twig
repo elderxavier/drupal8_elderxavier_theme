@@ -57,6 +57,10 @@
  * @ingroup themeable
  */
 #}
+<div id="block-page-ui">
+  <img src="./themes/drupal8_elderxavier_theme/img/loading.gif" alt="Carregando"/>
+</div>
+{% if  is_front %}
 <div id="home-slider">	
     <div class="overlay"></div>
     <div class="slider-text">
@@ -69,8 +73,11 @@
         <a id="nextsection" href="#work"><i class="fa fa-angle-down"></i></a>
     </div>
 </div>
+{% else%}
+<div id="particles-js"></div>
+{% endif%}
 <!-- Header and Navbar -->
-<header class="main-header header-fixed">    
+<header class="main-header">    
   <nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
       <div class="row">
@@ -296,7 +303,7 @@
 
 
 <!-- start: Footer -->
-{% if  is_front and (page.footer_first or page.footer_second or page.footer_third) %}
+<!-- if  is_front and (page.footer_first or page.footer_second or page.footer_third) -->
   <div class="footerwidget">
     <div class="container">
       
@@ -328,7 +335,7 @@
       </div>
     </div>
   </div>
-{% endif %}
+<!-- endif -->
 <!--End Footer -->
 
 <!-- Start Footer Menu -->

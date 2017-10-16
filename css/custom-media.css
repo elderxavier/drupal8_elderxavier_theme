@@ -77,13 +77,32 @@
   }
 
   /*comment*/
-
+  .main-header {opacity: 0.9; z-index: 9; margin-top: 200px} 
+  .header-fixed {margin-top: 0px}
+  .header-fixed{z-index: 5; opacity: 0.95 !important; top: 0; left: 0; right: 0; position: fixed !important; animation: menu-slidedown 0.3s; animation-iteration-count:1; -moz-animation: menu-slidedown 0.6s; -moz-animation-iteration-count:1; -webkit-animation: menu-slidedown 0.3s; -webkit-animation-iteration-count:1; -o-animation: menu-slidedown 0.3s; -o-animation-iteration-count:1; -ms-animation: menu-slidedown 0.3s; -ms-animation-iteration-count:1}
   .comment-wrap .author-details{ width: 10%; }
-
-  .comment-wrap .author-comments{ width: 90%;}
+  .comment-wrap .author-comments{ width: 90%;}  
+  .menu-base-theme ul {border: none}
+  .menu-base-theme ul li {background: #000; opacity: 0.95; border: none}
+  .menu-base-theme ul li a{ color: #fff } 
+  .page-node-type-home .main-header {margin-top: 0}
+  .page-node-type-home #wrapper {background: url(../img/backgrond-content-tn-6.jpg); background-size: cover; background-repeat:no-repeat; padding-top: 95px}  
+  .particles-js-canvas-el {max-height: 300px !important}
+  .li-particles {background-color: #3D59AB !important; height: 310px !important }
+  .li-particles h1 {top: 50px;position: relative;font-size: 30px;font-weight: bold; color: #f5f5f5}
+  #wrapper {min-height: 851px}
   
 }
 
 @media (max-width: 767px){
-    #servicos .wrapper-overlay {padding: 0}
+    #servicos .wrapper-overlay {padding: 15px 10px;border: 1px solid #a5a5a5}
+    .main-header {position: fixed; left: 0; right: 0; z-index: 9}
+    .menu-base-theme li a{ background: #222 !important; color: #f5f5f5}
+    .menu-base-theme a, .menu-base-theme ul li{ border: none; border-bottom: 1px solid #333 !important} 
+    #wrapper{margin-top:5em}
+    #wrapper{background: url(../img/backgrond-content-tn.jpg); background-size: contain; background-repeat:repeat}    
+    .wrapper-overlay .overlay {margin: -15px -10px}
+    .menu-base-theme a span.sub-arrow {border: 1px solid #333;background: #333}
+    #supersized, #particles-js {display: none;}
+
 }

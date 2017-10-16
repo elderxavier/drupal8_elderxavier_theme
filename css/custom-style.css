@@ -55,8 +55,7 @@ ul.links.inline li{
     color: #fff;
     padding: 10px 0;  
     background-size: cover;
-    position: relative;
-    opacity: 0.8;
+    position: relative;    
 }
 
 .main-header:after{
@@ -315,10 +314,6 @@ nav h2{
     background: none;
 }
 
-.menu-base-theme li a{
-    background: #FBFBFB
-}
-
 .main-menu {
     position: relative;
     z-index: 9999;
@@ -332,9 +327,7 @@ nav h2{
     margin-top: 20px;
 }
 
-.menu-base-theme a{
-    border-bottom: 1px solid #EEF0F7;
-}
+
 
 .menu-base-theme a span.sub-arrow{
     color: #999;
@@ -746,12 +739,6 @@ ul.links.inline li{
     margin-left: -7px;	
 }
 
-/* ==================================================
-   Header
-================================================== */
-
-
-.header-fixed{z-index: 5; opacity: 1 !important; top: 0; left: 0; right: 0; position: fixed !important; overflow: hidden; animation: menu-slidedown 0.3s; animation-iteration-count:1; -moz-animation: menu-slidedown 0.6s; -moz-animation-iteration-count:1; -webkit-animation: menu-slidedown 0.3s; -webkit-animation-iteration-count:1; -o-animation: menu-slidedown 0.3s; -o-animation-iteration-count:1; -ms-animation: menu-slidedown 0.3s; -ms-animation-iteration-count:1}
 
 
 @keyframes menu-slidedown{
@@ -780,8 +767,15 @@ ul.links.inline li{
     100% {height: 76px}
 }
 
-#wrapper {background: #fff}
+#wrapper {background: url(../img/backgrond-content-tn.jpg); background-size: cover; background-repeat:no-repeat;}
+
 .region-breadcrumb {margin-top: 83px}
+
+/*.menu-base-theme ul {display: block !important}*/
+
+/*
+.menu-base-theme ul li:nth-child(1) {top:62px}
+.menu-base-theme ul li:nth-child(2) {top:105px}*/
 
 
 
@@ -916,7 +910,9 @@ img {
     -o-transform: rotateY(0deg) scale(1,1);
     transform: rotateY(0deg) scale(1,1)
 }
-#servicos .servicos-title { height: 50px; vertical-align: central; line-height: 25px}
+#servicos .servicos-title { vertical-align: central; line-height: 25px}
 #servicos p {line-height: 23px; justify-content:space-between; vertical-align: bottom}
 
 
+#block-page-ui{z-index: 10;position: fixed;top: 0;bottom: 0;left: 0;right: 0;background: #333;opacity: 0.9}
+#block-page-ui img {position: fixed; top: 30%; left: 45%; height: 50px; width: auto}

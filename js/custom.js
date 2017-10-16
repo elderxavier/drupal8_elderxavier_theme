@@ -3,6 +3,9 @@ jQuery(document).ready(function ($) {
     var EX = window.EX || {};
 
     EX.slider = function () {
+        if (!$('body.page-node-type-home').length) {
+            return;
+        }
         $.supersized({
             // Functionality
             slideshow: 1,
@@ -29,11 +32,11 @@ jQuery(document).ready(function ($) {
             thumb_links: 0,
             thumbnail_navigation: 0,
             slides: [
-                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image01.jpg', title: '<div class="slide-content">PROGRAMADOR / WEB DEVELOPER</div>', thumb: '', url: ''},
-                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image02.jpg', title: '<div class="slide-content">MAGENTO DEVELOPER</div>', thumb: '', url: ''},
-                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image03.jpg', title: '<div class="slide-content">DOMINIO DE DIVERSAS LINGUAGENS</div>', thumb: '', url: ''},
-                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image04.jpg', title: '<div class="slide-content">E-CCOMERCE DEVELOPER</div>', thumb: '', url: ''},
-                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image05.jpg', title: '<div class="slide-content">WEB DEVELOPER</div>', thumb: '', url: ''}
+            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image01.jpg', title: '<div class="slide-content">PROGRAMADOR / WEB DEVELOPER</div>', thumb: '', url: ''},
+            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image02.jpg', title: '<div class="slide-content">MAGENTO DEVELOPER</div>', thumb: '', url: ''},
+            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image03.jpg', title: '<div class="slide-content">DOMINIO DE DIVERSAS LINGUAGENS</div>', thumb: '', url: ''},
+            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image04.jpg', title: '<div class="slide-content">E-CCOMERCE DEVELOPER</div>', thumb: '', url: ''},
+            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image05.jpg', title: '<div class="slide-content">WEB DEVELOPER</div>', thumb: '', url: ''}
             ],
             // Theme Options			   
             progress_bar: 0, // Timer for each slide							
@@ -44,7 +47,7 @@ jQuery(document).ready(function ($) {
     };
 
     EX.initSlide = function () {
-        $(function (a) {
+        $(function (a) {            
             EX.slider();
             var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
             a(document).ready(function () {
@@ -69,26 +72,34 @@ jQuery(document).ready(function ($) {
         $(document).scroll(function () {
             var mn = $(".main-header");
             mns = "header-fixed";
-            hdr = $('#home-slider').height();
-            $(window).scroll(function () {
+            hdr = $('#home-slider').height() || $('#particles-js').height();
+            //$(window).scroll(function () {
                 if ($(this).scrollTop() > hdr) {
                     mn.addClass(mns);
                 } else {
                     mn.removeClass(mns);
                 }
-            });
+            //});
         });
     };
 
     EX.HomeInit = function () {
+        EX.menuTop();
         if ($('body.page-node-type-home').length) {
-            EX.initSlide();
-            EX.menuTop();
-            $('.region-breadcrumb').hide();
-            $('.main-header').removeClass('header-fixed');
+            EX.initSlide();            
+            $('.region-breadcrumb').hide();            
         } else {
+            $('#supersized li').remove();
+            $('#supersized').addClass('ul-particles');            
+            $('#supersized').append('<li class="li-particles"></li>');
             $('#supersized-loader').hide();
-        }
+            pagetitle = $('title:eq(0)').html();
+            pagetitle = pagetitle.split("|")[0] || pagetitle || "";            
+            $('#supersized li').append('<div class="container"><h1>'+pagetitle +'</h1></div>');
+            particle = $('#particles-js');
+            $('#particles-js').remove();
+            $('#supersized li').append(particle);
+        }        
     };
     EX.NextSlide = function () {
         var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
@@ -126,22 +137,33 @@ jQuery(document).ready(function ($) {
     
     
     EX.fadeinWrapperOverlay = function () {
-        $('.wrapper-overlay').removeClass('fadeInUp');
-        $(document).scroll(function () {
-            var mn = $(".wrapper-overlay");
-            mns = "fadeInUp";
-            hdr = $('.wrapper-overlay').offset().top;
-            $(window).scroll(function () {                
-                if ($(this).scrollTop() >= hdr) {
-                    mn.addClass(mns);
+
+        if ($(window).width() < 767) {
+            $('.wrapper-overlay').addClass('fadeInUp');
+        } else {            
+            $('.wrapper-overlay').removeClass('fadeInUp');
+            $(document).scroll(function () {
+                try{
+                    var mn = $(".wrapper-overlay");
+                    mns = "fadeInUp";
+                    hdr = mn.offset().top;
+                        //$(window).scroll(function () {                
+                    if ($(this).scrollTop() >= (hdr * 0.5) ) {
+                        mn.addClass(mns);
+                    }
+                }catch(err){
+                    return;
                 }
-            });
-        });
+                    //});
+                });
+        }
+
     };
     /*init*/
 
     EX.init = function () {
         window.onload = function () {
+            $('#block-page-ui').addClass('hidden');
 
         };
         $(function () {
@@ -170,11 +192,7 @@ jQuery(document).ready(function ($) {
             EX.fadeinWrapperOverlay();
 
         });
-
-
-
-
-
+        window.onbeforeunload = function(){$('#block-page-ui').removeClass('hidden');}
     };
 
 
