@@ -86,11 +86,12 @@
   .menu-base-theme ul li {background: #000; opacity: 0.95; border: none}
   .menu-base-theme ul li a{ color: #fff } 
   .page-node-type-home .main-header {margin-top: 0}
-  .page-node-type-home #wrapper {background: url(../img/backgrond-content-tn-6.jpg); background-size: cover; background-repeat:no-repeat; padding-top: 95px}  
+  .page-node-type-home #wrapper {padding-top: 95px} 
+  .page-node-type-home #servicos .container-fluid {background: url(../img/backgrond-content-tn-6.jpg); background-size: cover; background-repeat:no-repeat}  
   .particles-js-canvas-el {max-height: 300px !important}
   .li-particles {background-color: #3D59AB !important; height: 310px !important }
   .li-particles h1 {top: 50px;position: relative;font-size: 30px;font-weight: bold; color: #f5f5f5}
-  #wrapper {min-height: 851px}
+  #wrapper {min-height: 851px; background: #fff}
   
 }
 
@@ -98,9 +99,8 @@
     #servicos .wrapper-overlay {padding: 15px 10px;border: 1px solid #a5a5a5}
     .main-header {position: fixed; left: 0; right: 0; z-index: 9}
     .menu-base-theme li a{ background: #222 !important; color: #f5f5f5}
-    .menu-base-theme a, .menu-base-theme ul li{ border: none; border-bottom: 1px solid #333 !important} 
-    #wrapper{margin-top:5em}
-    #wrapper{background: url(../img/backgrond-content-tn.jpg); background-size: contain; background-repeat:repeat}    
+    .menu-base-theme a, .menu-base-theme ul li{ border: none; border-bottom: 1px solid #333 !important}     
+    #wrapper{background: url(../img/backgrond-content-tn.jpg); background-size: contain; background-repeat:repeat; margin-top:5em}    
     .wrapper-overlay .overlay {margin: -15px -10px}
     .menu-base-theme a span.sub-arrow {border: 1px solid #333;background: #333}
     #supersized, #particles-js {display: none;}

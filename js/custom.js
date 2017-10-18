@@ -32,11 +32,11 @@ jQuery(document).ready(function ($) {
             thumb_links: 0,
             thumbnail_navigation: 0,
             slides: [
-            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image01.jpg', title: '<div class="slide-content">PROGRAMADOR / WEB DEVELOPER</div>', thumb: '', url: ''},
-            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image02.jpg', title: '<div class="slide-content">MAGENTO DEVELOPER</div>', thumb: '', url: ''},
-            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image03.jpg', title: '<div class="slide-content">DOMINIO DE DIVERSAS LINGUAGENS</div>', thumb: '', url: ''},
-            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image04.jpg', title: '<div class="slide-content">E-CCOMERCE DEVELOPER</div>', thumb: '', url: ''},
-            {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image05.jpg', title: '<div class="slide-content">WEB DEVELOPER</div>', thumb: '', url: ''}
+                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image01.jpg', title: '<div class="slide-content">PROGRAMADOR / WEB DEVELOPER</div>', thumb: '', url: ''},
+                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image02.jpg', title: '<div class="slide-content">MAGENTO DEVELOPER</div>', thumb: '', url: ''},
+                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image03.jpg', title: '<div class="slide-content">DOMINIO DE DIVERSAS LINGUAGENS</div>', thumb: '', url: ''},
+                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image04.jpg', title: '<div class="slide-content">E-CCOMERCE DEVELOPER</div>', thumb: '', url: ''},
+                {image: 'themes/drupal8_elderxavier_theme/img/slider-images/image05.jpg', title: '<div class="slide-content">WEB DEVELOPER</div>', thumb: '', url: ''}
             ],
             // Theme Options			   
             progress_bar: 0, // Timer for each slide							
@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
     };
 
     EX.initSlide = function () {
-        $(function (a) {            
+        $(function (a) {
             EX.slider();
             var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
             a(document).ready(function () {
@@ -74,11 +74,11 @@ jQuery(document).ready(function ($) {
             mns = "header-fixed";
             hdr = $('#home-slider').height() || $('#particles-js').height();
             //$(window).scroll(function () {
-                if ($(this).scrollTop() > hdr) {
-                    mn.addClass(mns);
-                } else {
-                    mn.removeClass(mns);
-                }
+            if ($(this).scrollTop() > hdr) {
+                mn.addClass(mns);
+            } else {
+                mn.removeClass(mns);
+            }
             //});
         });
     };
@@ -86,20 +86,20 @@ jQuery(document).ready(function ($) {
     EX.HomeInit = function () {
         EX.menuTop();
         if ($('body.page-node-type-home').length) {
-            EX.initSlide();            
-            $('.region-breadcrumb').hide();            
+            EX.initSlide();
+            $('.region-breadcrumb').hide();
         } else {
             $('#supersized li').remove();
-            $('#supersized').addClass('ul-particles');            
+            $('#supersized').addClass('ul-particles');
             $('#supersized').append('<li class="li-particles"></li>');
             $('#supersized-loader').hide();
             pagetitle = $('title:eq(0)').html();
-            pagetitle = pagetitle.split("|")[0] || pagetitle || "";            
-            $('#supersized li').append('<div class="container"><h1>'+pagetitle +'</h1></div>');
+            pagetitle = pagetitle.split("|")[0] || pagetitle || "";
+            $('#supersized li').append('<div class="container"><h1>' + pagetitle + '</h1></div>');
             particle = $('#particles-js');
             $('#particles-js').remove();
             $('#supersized li').append(particle);
-        }        
+        }
     };
     EX.NextSlide = function () {
         var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
@@ -126,7 +126,7 @@ jQuery(document).ready(function ($) {
             if (didScroll) {
                 didScroll = false;
 
-                if ($(window).scrollTop() > ( height * 0.8) ) {
+                if ($(window).scrollTop() > (height * 0.8)) {
                     $arrow.css('display', 'block');
                 } else {
                     $arrow.css('display', 'none');
@@ -134,38 +134,97 @@ jQuery(document).ready(function ($) {
             }
         }, 250);
     }
-    
-    
-    EX.fadeinWrapperOverlay = function () {
 
+
+    EX.fadeinWrapperOverlay = function () {        
         if ($(window).width() < 767) {
             $('.wrapper-overlay').addClass('fadeInUp');
-        } else {            
+        } else {
             $('.wrapper-overlay').removeClass('fadeInUp');
             $(document).scroll(function () {
-                try{
+                try {
                     var mn = $(".wrapper-overlay");
+                    mnr = "fadeOutDown";
                     mns = "fadeInUp";
                     hdr = mn.offset().top;
-                        //$(window).scroll(function () {                
-                    if ($(this).scrollTop() >= (hdr * 0.5) ) {
+                    if ($(this).scrollTop() >= (hdr * 0.3)) {
+                        mn.removeClass(mnr);
                         mn.addClass(mns);
+                    } else {
+                        mn.removeClass(mns);
+                        mn.addClass(mnr);
                     }
-                }catch(err){
+                } catch (err) {
                     return;
                 }
-                    //});
-                });
-        }
 
+            });
+        }
     };
+
+    EX.filters = function () {
+        if ($('#projects').length > 0) {
+            var $container = $('#projects');
+
+            $container.imagesLoaded(function () {
+                $container.isotope({
+                    // options
+                    animationEngine: 'best-available',
+                    itemSelector: '.item-thumbs',
+                    layoutMode: 'fitRows'
+                });
+            });
+
+            // filter items when filter link is clicked
+            var $optionSets = $('#options .option-set'),
+                    $optionLinks = $optionSets.find('a');
+
+            $optionLinks.click(function () {
+                var $this = $(this);
+                // don't proceed if already selected
+                if ($this.hasClass('selected')) {
+                    return false;
+                }
+                var $optionSet = $this.parents('.option-set');
+                $optionSet.find('.selected').removeClass('selected');
+                $this.addClass('selected');
+
+                // make option object dynamically, i.e. { filter: '.my-filter-class' }
+                var options = {},
+                        key = $optionSet.attr('data-option-key'),
+                        value = $this.attr('data-option-value');
+                // parse 'false' as false boolean
+                value = value === 'false' ? false : value;
+                options[ key ] = value;
+                if (key === 'layoutMode' && typeof changeLayoutMode === 'function') {
+                    // changes in layout modes need extra logic
+                    changeLayoutMode($this, options)
+                } else {
+                    // otherwise, apply new options
+                    $container.isotope(options);
+                }
+
+                return false;
+            });
+        }
+    }
     /*init*/
 
     EX.init = function () {
-        window.onload = function () {
+        $(function () {
+            var includes = $('[data-include]');
+            jQuery.each(includes, function () {
+                var file = '/themes/drupal8_elderxavier_theme/content-body/' + $(this).data('include');
+                $(this).load(file);
+            });
+        });
+        $(window).load(function () {
             $('#block-page-ui').addClass('hidden');
-
-        };
+            EX.fadeinWrapperOverlay();
+            EX.filters();
+        });
+        
+        
         $(function () {
             //Main menu
             $('#main-menu').smartmenus();
@@ -189,44 +248,17 @@ jQuery(document).ready(function ($) {
 
             EX.NextSlide();
             EX.scrollToTop();
-            EX.fadeinWrapperOverlay();
+            
+            
 
         });
-        window.onbeforeunload = function(){$('#block-page-ui').removeClass('hidden');}
+        window.onbeforeunload = function () {
+            $('#block-page-ui').removeClass('hidden');
+        }
     };
 
 
     EX.init();
-
-    $(window).load(function () {
-        var $container = $('.portfolioContainer');
-        $container.isotope({
-            filter: '*',
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false
-            }
-        });
-
-        $('.portfolioFilter a').click(function () {
-            $('.portfolioFilter .current').removeClass('current');
-            $(this).addClass('current');
-
-            var selector = $(this).attr('data-filter');
-            $container.isotope({
-                filter: selector,
-                animationOptions: {
-                    duration: 750,
-                    easing: 'linear',
-                    queue: false
-                }
-            });
-            return false;
-        });
-    });
-
-
 
 
 

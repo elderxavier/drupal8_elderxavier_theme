@@ -188,8 +188,9 @@
 <!-- layout -->
 <div id="wrapper">
   <!-- start: Container -->
-  <div class="container">
-    
+  {% if  not is_front %}
+    <div class="container">
+  {%endif%}    
     <!--Content top-->
       {% if page.content_top %}
         <div class="row">
@@ -243,8 +244,11 @@
         {{ page.content_bottom }}
       </div>
     {% endif %}
-    <!--End Content Bottom-->
-  </div>
+    <!--End Content Bottom-->    
+  {% if  not is_front %}
+    </div>
+  {%endif%}
+  
 </div>
 <!-- End layout -->
 

@@ -2,10 +2,10 @@
     font-family: 'OpenSans';
     src: url('../fonts/fonts/OpenSans/OpenSans.eot'); /* IE9 Compat Modes */
     src: url('../fonts/OpenSans/OpenSans.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('../fonts/OpenSans/OpenSans.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../fonts/OpenSans/OpenSans.woff') format('woff'), /* Pretty Modern Browsers */
-        url('../fonts/OpenSans/OpenSans.ttf')  format('truetype'), /* Safari, Android, iOS */
-        url('../fonts/OpenSans/OpenSans.svg#OpenSans') format('svg'); /* Legacy iOS */
+    url('../fonts/OpenSans/OpenSans.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/OpenSans/OpenSans.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/OpenSans/OpenSans.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/OpenSans/OpenSans.svg#OpenSans') format('svg'); /* Legacy iOS */
 }
 
 /*Header*/
@@ -562,9 +562,9 @@ ul.links.inline li{
 
 /* ==================================================
    Home Slider
-================================================== */
+   ================================================== */
 
-#home-slider {
+   #home-slider {
     position: relative;
     overflow: hidden;
     height: 100%;
@@ -766,13 +766,8 @@ ul.links.inline li{
     25%  {height: 20px}
     100% {height: 76px}
 }
-
-#wrapper {background: url(../img/backgrond-content-tn.jpg); background-size: cover; background-repeat:no-repeat;}
-
 .region-breadcrumb {margin-top: 83px}
-
 /*.menu-base-theme ul {display: block !important}*/
-
 /*
 .menu-base-theme ul li:nth-child(1) {top:62px}
 .menu-base-theme ul li:nth-child(2) {top:105px}*/
@@ -839,15 +834,15 @@ img {
 
 /* ==================================================
    HOME
-================================================== */
+   ================================================== */
 
-#servicos {margin: 0 auto}
-#servicos .wrapper-overlay{ transition: all 0.3s ease-in-out; height: 250px; padding: 15px; margin: 20px 0; opacity: 0 }
-#servicos .wrapper-overlay:hover  .servicos-icon {font-size: 6em; transition: all 0.7s !important}
-#servicos h1 {font-size: 1.7em; font-weight: bold}
-#servicos .servicos-icon {font-size: 5em; font-weight: bold; color:#1E90FF}
+   #servicos {margin: 0 auto}
+   #servicos .wrapper-overlay{ transition: all 0.3s ease-in-out; height: 250px; padding: 15px; margin: 20px 0; opacity: 0 }
+   #servicos .wrapper-overlay:hover  .servicos-icon {font-size: 6em; transition: all 0.7s !important}
+   #servicos h1 {font-size: 1.7em; font-weight: bold}
+   #servicos .servicos-icon {font-size: 5em; font-weight: bold; color:#1E90FF}
 
-.fadeInUp {
+   .fadeInUp {
     -webkit-animation-name: fadeInUp;
     animation-name: fadeInUp;
     -webkit-animation-duration: 1s;
@@ -879,6 +874,35 @@ img {
         transform: none;
     }
 } 
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeOutDown {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+  }
+}
+@keyframes fadeOutDown {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+  }
+}
 
 .wrapper-overlay .overlay {
     position: absolute;
@@ -916,3 +940,4 @@ img {
 
 #block-page-ui{z-index: 10;position: fixed;top: 0;bottom: 0;left: 0;right: 0;background: #333;opacity: 0.9}
 #block-page-ui img {position: fixed; top: 30%; left: 45%; height: 50px; width: auto}
+#projetos .container-fluid {background: url(../img/bg-projetos2.jpg); background-size: cover; background-color: #8B0000; background-attachment: fixed}
